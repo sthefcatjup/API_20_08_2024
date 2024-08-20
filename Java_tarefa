@@ -1,0 +1,52 @@
+package application.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+
+@Entity
+@Table(name = "atividades")
+public class Atividade {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idAtividade;
+
+    @Column(nullable = false)
+    private String conteudo;
+
+    @Column(nullable = false)
+    private Boolean estaConcluida;
+
+    public long getIdAtividade() {
+        return this.idAtividade;
+    }
+
+    public void setIdAtividade(long idAtividade) {
+        this.idAtividade = idAtividade;
+    }
+
+    public String getConteudo() {
+        return this.conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+
+    public Boolean getEstaConcluida() {
+        return this.estaConcluida;
+    }
+
+    public void setEstaConcluida(Boolean estaConcluida) {
+        this.estaConcluida = estaConcluida;
+    }
+
+    //Exibindo informaçoes da Atividade
+    public String exibirInformacoes() {
+        return "Atividade ID: " + idAtividade + ", Descrição: " + conteudo + ", Concluída: " + estaConcluida;
+    }
+}
+ 
